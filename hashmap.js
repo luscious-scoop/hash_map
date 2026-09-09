@@ -70,10 +70,25 @@ export function HashMap() {
     return true;
   }
 
+  function remove(key) {
+    const bucket = getBucket(key);
+
+    for (let i = 0; i < bucket.length; i++) {
+      if (bucket[i].key === key) {
+        bucket.splice(i, 1);
+
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   return {
     set,
     buckets,
     get,
     has,
+    remove,
   };
 }
