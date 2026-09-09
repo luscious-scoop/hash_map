@@ -60,9 +60,20 @@ export function HashMap() {
     return object.value;
   }
 
+  function has(key) {
+    const bucket = getBucket(key);
+
+    const object = entry(key, bucket);
+    if (!object) {
+      return false;
+    }
+    return true;
+  }
+
   return {
     set,
     buckets,
     get,
+    has,
   };
 }
