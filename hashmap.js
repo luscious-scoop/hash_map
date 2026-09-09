@@ -25,4 +25,13 @@ function HashMap() {
     const bucket = buckets[hashCode];
     return bucket;
   }
+
+  function entry(key, bucket) {
+    for (let e of bucket) {
+      if (e.key === key) {
+        return e;
+      }
+    }
+    return null;
+  }
 }
