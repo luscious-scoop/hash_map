@@ -13,6 +13,6 @@ function HashMap() {
       hashCode = primeNumber * hashCode + key.charCodeAt(i);
     }
 
-    return hashCode;
+    return hashCode % capacity;
   }
 }
