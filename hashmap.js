@@ -34,4 +34,16 @@ function HashMap() {
     }
     return null;
   }
+
+  function set(key, value) {
+    const bucket = getBucket(key);
+    const object = entry(key, bucket);
+
+    if (object) {
+      object.value = value;
+      return;
+    }
+
+    bucket.push({ key, value });
+  }
 }
