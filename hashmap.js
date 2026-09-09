@@ -46,4 +46,9 @@ function HashMap() {
 
     bucket.push({ key, value });
   }
+
+  return {
+    set,
+    buckets,
+  };
 }
