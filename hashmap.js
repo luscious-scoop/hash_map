@@ -2,8 +2,11 @@ function HashMap() {
   const loadFactor = 0.75;
   let capacity = 16;
 
-  let buckets = new Array(capacity);
-  buckets.fill([]);
+  let buckets = [];
+
+  for (let i = 0; i < capacity; i++) {
+    buckets[i] = [];
+  }
 
   function hash(key) {
     let hashCode = 0;
