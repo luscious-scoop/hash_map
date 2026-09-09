@@ -4,9 +4,12 @@ export function HashMap() {
 
   let buckets = [];
 
-  for (let i = 0; i < capacity; i++) {
-    buckets[i] = [];
+  function initializeArray() {
+    for (let i = 0; i < capacity; i++) {
+      buckets[i] = [];
+    }
   }
+  initializeArray();
 
   function hash(key) {
     let hashCode = 0;
