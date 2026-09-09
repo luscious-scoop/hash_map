@@ -40,7 +40,10 @@ export function HashMap() {
     const object = entry(key, bucket);
 
     if (object) {
+      console.log(`I am old value : ${object.value}`);
+
       object.value = value;
+      console.log(`I am new value : ${object.value}`);
       return;
     }
 
