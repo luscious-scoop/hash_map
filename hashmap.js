@@ -50,8 +50,19 @@ export function HashMap() {
     bucket.push({ key, value });
   }
 
+  function get(key) {
+    const bucket = getBucket(key);
+
+    const object = entry(key, bucket);
+    if (!object) {
+      return object;
+    }
+    return object.value;
+  }
+
   return {
     set,
     buckets,
+    get,
   };
 }
