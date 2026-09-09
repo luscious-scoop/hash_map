@@ -96,6 +96,10 @@ export function HashMap() {
     return count;
   }
 
+  function clear() {
+    initializeArray();
+  }
+
   return {
     set,
     buckets,
@@ -103,5 +107,6 @@ export function HashMap() {
     has,
     remove,
     length,
+    clear,
   };
 }
