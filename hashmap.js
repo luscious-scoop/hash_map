@@ -19,4 +19,10 @@ function HashMap() {
 
     return hashCode;
   }
+
+  function getBucket(key) {
+    const hashCode = hash(key);
+    const bucket = buckets[hashCode];
+    return bucket;
+  }
 }
