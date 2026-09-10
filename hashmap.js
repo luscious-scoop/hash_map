@@ -107,9 +107,11 @@ export function HashMap() {
     return buckets.flat().map((e) => [e.key, e.value]);
   }
 
+  const getHashMap = () => buckets;
+
   return {
     set,
-    buckets,
+    getHashMap,
     get,
     has,
     remove,
