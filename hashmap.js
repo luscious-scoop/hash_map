@@ -100,6 +100,10 @@ export function HashMap() {
     initializeArray();
   }
 
+  function keys() {
+    return buckets.flat().map((e) => e.key);
+  }
+
   return {
     set,
     buckets,
@@ -108,5 +112,6 @@ export function HashMap() {
     remove,
     length,
     clear,
+    keys,
   };
 }
