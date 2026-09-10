@@ -1,4 +1,4 @@
-export function HashMap() {
+function HashMap() {
   const loadFactor = 0.75;
   let capacity = 16;
 
@@ -25,6 +25,9 @@ export function HashMap() {
 
   function getBucket(key) {
     const hashCode = hash(key);
+    if (hashCode < 0 || hashCode >= buckets.length) {
+      throw new Error('Trying to access index out of bounds');
+    }
     const bucket = buckets[hashCode];
     return bucket;
   }
@@ -121,7 +124,7 @@ export function HashMap() {
 
     let oldMap = buckets.flat();
 
-    initializeArray();
+    clear();
 
     oldMap.forEach((el) => {
       set(el.key, el.value);
