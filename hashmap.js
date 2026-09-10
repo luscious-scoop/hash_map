@@ -104,6 +104,10 @@ export function HashMap() {
     return buckets.flat().map((e) => e.key);
   }
 
+  function values() {
+    return buckets.flat().map((e) => e.value);
+  }
+
   return {
     set,
     buckets,
@@ -113,5 +117,6 @@ export function HashMap() {
     length,
     clear,
     keys,
+    values,
   };
 }
