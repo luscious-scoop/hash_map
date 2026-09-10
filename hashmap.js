@@ -88,12 +88,7 @@ export function HashMap() {
   }
 
   function length() {
-    let count = 0;
-
-    for (let i = 0; i < buckets.length; i++) {
-      count += buckets[i].length;
-    }
-    return count;
+    return buckets.flat().length;
   }
 
   function clear() {
