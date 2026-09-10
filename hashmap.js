@@ -51,6 +51,7 @@ export function HashMap() {
     }
 
     bucket.push({ key, value });
+    isLoaderFactorExceeded();
   }
 
   function get(key) {
@@ -105,6 +106,26 @@ export function HashMap() {
 
   function entries() {
     return buckets.flat().map((e) => [e.key, e.value]);
+  }
+
+  function isLoaderFactorExceeded() {
+    const factor = capacity * loadFactor;
+
+    if (length() > factor) {
+      expandHashMap();
+    }
+  }
+
+  function expandHashMap() {
+    capacity = capacity * 2;
+
+    let oldMap = buckets.flat();
+
+    initializeArray();
+
+    oldMap.forEach((el) => {
+      set(el.key, el.value);
+    });
   }
 
   const getHashMap = () => buckets;
