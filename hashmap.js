@@ -1,4 +1,4 @@
-function HashMap() {
+function HashMap_Array() {
   const loadFactor = 0.75;
   let capacity = 16;
 

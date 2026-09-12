@@ -5,8 +5,8 @@ export function LinkedList() {
 
   let _tail = null;
 
-  const append = (value) => {
-    let node = new Node(value);
+  const append = (key, value) => {
+    let node = new Node(key, value);
     if (!_head) {
       _head = node;
       _tail = _head;
@@ -23,7 +23,7 @@ export function LinkedList() {
     let temp = _head;
     let string = '';
     while (temp !== null) {
-      string += `(${temp.value}) -> `;
+      string += `( Key: ${temp.key} , Value :${temp.value} ) -> `;
       temp = temp.next;
       if (!temp) {
         string += temp;
@@ -34,9 +34,9 @@ export function LinkedList() {
 
   const head = () => {
     if (!_head) {
-      return undefined;
+      return null;
     }
-    return _head.value;
+    return _head;
   };
 
   const tail = () => {
@@ -95,12 +95,12 @@ export function LinkedList() {
     return false;
   };
 
-  const findIndex = (value) => {
+  const findIndex = (key) => {
     let temp = _head;
     let count = 0;
 
     while (temp !== null) {
-      if (value === temp.value) {
+      if (key === temp.key) {
         return count;
       }
       temp = temp.next;
@@ -182,6 +182,30 @@ export function LinkedList() {
     }
   };
 
+  const loopList = (param) => {
+    let temp = _head;
+    let array = [];
+    while (temp !== null) {
+      array.push(temp[param]);
+
+      temp = temp.next;
+    }
+
+    return array;
+  };
+
+  function pairs() {
+    let entries = [];
+
+    let temp = _head;
+    while (temp !== null) {
+      entries.push([temp.key, temp.value]);
+      temp = temp.next;
+    }
+
+    return entries;
+  }
+
   return {
     append,
     toString,
@@ -195,5 +219,7 @@ export function LinkedList() {
     pop,
     insertAt,
     remove,
+    loopList,
+    pairs,
   };
 }
